@@ -46,7 +46,7 @@ async function translate(text, from, to, options) {
     return result.choices[0].message.content
         .trim()
         .replace(/^"|"$/g, '')
-        .replace(/<think>\s*<\/think>\s*/g, '');  // 清除 <think> ... </think> 部分
+        .replace(/<think>[\s\S]*?<\/think>/g, '');  // 清除 <think> 与 </think> 之间的所有内容.replace(/<think>\s*<\/think>\s*/g, ''); 
     } else {
         throw `Http Request Error\nHttp Status: ${res.status}\n${JSON.stringify(res.data)}`;
     }
