@@ -40,10 +40,15 @@ async function translate(text, from, to, options) {
         }
     });
     
+
     if (res.ok) {
-        let result = res.data;
-        return result.choices[0].message.content.trim().replace(/^"|"$/g, '');
+    let result = res.data;
+    return result.choices[0].message.content
+        .trim()
+        .replace(/^"|"$/g, '')
+        .replace(/<think>\s*<\/think>\s*/g, '');  // 清除 <think> ... </think> 部分
     } else {
         throw `Http Request Error\nHttp Status: ${res.status}\n${JSON.stringify(res.data)}`;
     }
+
 }
