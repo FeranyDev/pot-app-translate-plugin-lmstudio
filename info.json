@@ -1,23 +1,18 @@
 {
-  "id": "plugin.com.TzuLao.deepseek",
+  "id": "plugin.com.TzuLao.lmstudio",
   "plugin_type": "translate",
   "icon": "deepseek.svg",
-  "display": "deepseek",
+  "display": "lmstudio",
   "homepage": "https://github.com/tzulao55/pot-app-translate-plugin-deepseek",
   "needs": [
     {
       "key": "model",
       "display": "模型选择",
-      "type": "select",
-      "options": {
-        "deepseek-chat": "deepseek-chat",
-        "deepseek-reasoner": "deepseek-reasoner"
-      },
-      "default": "deepseek-chat"
+      "type": "input"
     },
     {
-      "key": "apiKey",
-      "display": "API密钥",
+      "key": "apiUrl",
+      "display": "API路径",
       "type": "input"
     }
   ],
