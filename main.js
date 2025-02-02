@@ -2,14 +2,13 @@ async function translate(text, from, to, options) {
     const { config, utils } = options;
     const { tauriFetch: fetch } = utils;
     
-    let { apiKey, model = "deepseek-chat" } = config;
+    let { apiUrl, model = "deepseek-chat" } = config;
     
     // 设置默认请求路径
-    const requestPath = "https://api.deepseek.com/chat/completions";
+    const requestPath = apiUrl;
     
     const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
+        'Content-Type': 'application/json'
     }
     
     const body = {
